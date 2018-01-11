@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+    <title>JQuery</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+<style>
+	#box1 {
+	width:200px;
+	height:200px;
+	background-color:red;
+	margin-bottom: 10px;
+	}
+	
+
+	
+</style>
+<body>
+
+	<div id="box1"></div>
+	<p>This is some text</p>
+	<iframe src "C:\Users\mitchell1459\Desktop\images\redcircle.jpg"></iframe>
+	<script>
+
+	$("#box1").click(function() {
+	$("p").html("the text has been changed!");	
+	//select p tag and changes content
+	});
+	// $ string symbol invokes circle, selecting
+	//$("#box1").click(function() { changes font when you hover over text
+	
+	$("#box1").hover(function() {
+		$("iframe").attr("src", "C:\Users\mitchell1459\Desktop\images\trump.jpg");
+	});
+	</script>	
+	</body>
+
+</html>

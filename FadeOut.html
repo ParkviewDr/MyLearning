@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+ <head>
+ <title>Learning jQuery</title>
+
+ <meta charset="utf-8" />
+ <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+ <script type="text/javascript" src="jquery.min.js"></script>
+
+
+ <style>
+
+
+
+ </style>
+
+ </head>
+
+ <body>
+
+<p>Excerpt from article by Riccardo Gazzaniga on Australian legend and still 200m NR holder, Peter Norman, who stood in solidarity with with John Carlos and Tommie Smith during their historic “Black Power” salute at the 1968 Olympics. His stand caused him to be persecuted in Australia and cost him a trip to the 1972 Olympics, but he, Carlos and Smith became lifelong friends.</p>
+
+<button id="myButton">Fade Out</button>
+
+<button id="fadeIn">Fade In</button>
+
+ <script>
+
+ $("#myButton").click(function() {
+
+	$("p").fadeOut("fast", function() {
+	alert("fadeout complete");
+
+});
+
+ });
+
+ $("#fadeIn").click(function() {
+
+	$("p").fadeIn("slow");
+
+ });
+
+ </script>
+
+
+
+ </body>
+</html>
