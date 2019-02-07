@@ -1,0 +1,85 @@
+//create an object with different values assigned to the object such as John's full name and the bill values 
+var John = {
+	fullName: 'John Smith',
+	bills: [124, 48, 268, 180, 42],
+	calcTips: function() {
+		this.tips=[];
+		this.finalValues = [];
+		// for loop which loops through the length of bills array which happens to be 5
+		for (var i = 0; i < this.bills.length; i++)
+			{
+				//determine percentage based on tipping rules
+				var percentage;
+				var bill= this.bills[i];
+				
+				if (bill <50) {
+					percentage = .2;
+					
+				} else if (bill >= 50 && bill < 200) {
+					percentage = .15;
+				} else {
+					percentage = .1;
+					
+				}
+				//add results to the corresponding arrays
+				this.tips[i] = bill * percentage;
+				this.finalValues[i] = bill + bill * percentage;
+				
+			}
+	}
+}
+
+
+var Mark = {
+	fullName: 'Mark Johnson',
+	bills: [77, 333, 110, 45],
+	calcTips: function() {
+		this.tips=[];
+		this.finalValues = [];
+		// for loop which loops through the length of bills array which happens to be 5
+		for (var i = 0; i < this.bills.length; i++)
+			{
+				//determine percentage based on tipping rules
+				var percentage;
+				var bill= this.bills[i];
+				
+				if (bill <100) {
+					percentage = .2;
+					
+				} else if (bill >= 100 && bill < 300) {
+					percentage = .15;
+				} else {
+					percentage = .25;
+					
+				}
+				//add results to the corresponding arrays
+				this.tips[i] = bill * percentage;
+				this.finalValues[i] = bill + bill * percentage;
+				
+			}
+	}
+}
+
+function calcAverage(tips) {
+	var sum = 0;
+	for (var i = 0; i < tips.length; i++) {
+		sum = sum + tips[i];
+	}	
+	return sum / tips.length;
+	
+} // [2, 4, 7] the way this is works is the sum is 0 then it adds 2 to the value then goes through and stores 2 and adds the next number which is 4 which becomes 6, 6 gets stored and added to 7 which is 13; then the return sum which is 13 gets divided by the tips lenth which is 3 
+
+// do all the calculations 
+John.calcTips();
+Mark.calcTips();
+
+John.average = calcAverage(John.tips);
+Mark.average = calcAverage(Mark.tips);
+
+console.log(John, Mark);
+
+if (John.average > Mark.average) {
+	console.log(John.fullName + '\'s family pays higher tips, with an average of $' + John.average);
+} else if (Mark.average > John.average) {
+	console.log(Mark.fullName + '\'s family pays higher tips, with an average of $' + Mark.average);
+}
