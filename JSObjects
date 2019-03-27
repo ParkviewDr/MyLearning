@@ -1,0 +1,620 @@
+// function constructor 
+
+/*
+
+var john = {
+	name: 'John',
+	yearOfBirth: 1990,
+	job: 'teacher'
+};
+
+var Person = function(name, yearOfBirth, job) {
+	this.name = name;
+	this.yearOfBirth = yearOfBirth;
+	this.job = job;
+
+}
+
+Person.prototype.calculateAge = 
+	function() {
+	console.log(2016 - this.yearOfBirth);
+}
+
+Person.prototype.lastName = 'Smith';
+
+var john = new Person('John', 1990, 'teacher');
+var jane = new Person('Jane', 1969, 'designer');
+var mark = new Person('Mark', 1948, 'retired');
+
+john.calculateAge();
+mark.calculateAge();
+jane.calculateAge();
+
+console.log(john.lastName);
+console.log(jane.lastName);
+console.log(mark.lastName);
+
+
+///PRACTICE WITH INHERITANCE AND CONSTRUCTOR OBJECTS
+
+var Runner = function(name, distance, age) {
+	this.name = name;
+	this.distance = distance;
+	this.age = age;
+}
+
+var Matt = new Runner('Matt', 'one mile', 27)
+var Mike = new Runner('Mike', 'marathon', 32)
+var Seth = new Runner('Seth', '5k', 37)
+
+console.log(Mike.distance);
+
+Runner.prototype.inspiration = 'running is good for you';
+console.log(Mike.inspiration);
+
+
+
+*/ //object.create 
+
+
+/*
+var personProto = {
+	calculateAge: function () {
+	console.log(2019 - this.yearOfBirth);
+	
+}
+};
+
+var john = Object.create(personProto);
+
+john.name = 'John';
+john.yearOfBirth = 1990;
+john.job = 'teacher';
+
+var jane = Object.create(personProto, 
+{ 
+			name: { value: 'Jane' },
+			yearOfBirth: {value: 1970 },
+			job: { value: 'designer '}
+	
+});
+
+*/
+
+//Passing functions as arguments
+
+/*
+
+var years = [1988, 1965, 1937, 2005, 1998];
+
+function arrayCalc(arr, fn) {
+	  var arrRes = [];
+	  for (var i = 0; i <arr.length; i++) {
+				arrRes.push(fn(arr[i]));
+			}
+	return arrRes;
+}
+
+function calculateAge(el) {
+	 return 2019 - el;
+}
+
+function isFullAge(el) {
+		return el >= 18;
+}
+
+function maxHeartRate(el) {
+	if (el >= 18 && el <= 81) {
+			return Math.round(206.9 - (0.67 * el));
+	} else {
+		return -1;
+	}
+	
+
+}
+
+ 
+var ages = arrayCalc(years, calculateAge);
+var fullAges = arrayCalc(ages, isFullAge);
+var MaxHeart = arrayCalc(ages, maxHeartRate);
+console.log(ages);
+console.log(fullAges);
+console.log(MaxHeart);
+
+*/ //function returning function 
+/*
+function interviewQuestion(job) {
+	 if (job === 'designer') {
+			 return function(name) {
+					console.log(name + ', can you please explain UX design is?')
+				}
+				} else if (job === 'teacher') {
+				return function(name) {
+					console.log('What subject do you teach, ' + name + '?');
+				}
+				} else {
+					return function(name) { 
+						console.log('hello ' + name + ', what do you do?')
+						
+					}
+				}
+		}
+		
+
+var teacherQuestion = interviewQuestion('teacher');
+
+teacherQuestion('John');
+
+var designerQuestion = interviewQuestion('designer');
+
+designerQuestion('Bill');
+
+
+
+interviewQuestion('trashman')('Todd');
+
+
+
+*/
+
+/*
+var miles = [70, 32, 99, 102, 11];
+
+function arrayCalc(arr, fn) {
+	  var arrRes = [];
+	  for (var i = 0; i <arr.length; i++) {
+				arrRes.push(fn(arr[i]));
+			}
+	return arrRes;
+}
+
+function milesPer(el) {
+	return Math.round(el / 7);
+}
+
+
+var milesPerWeek = arrayCalc(miles, milesPer);
+console.log(milesPerWeek);
+
+
+*/
+
+
+	/*
+	
+	function typeofHouse(house) {
+	 if (house === 'traditonal') {
+			 return function(name) {
+					console.log(name + ', I love traditional houses')
+				}
+				} else if (house === 'colonial') {
+				return function(name) {
+					console.log(name + ', how long have you lived in this colonial');
+				}
+				} else {
+					return function(name) { 
+						console.log(name + ' I have never seen one of those houses ')
+						
+					}
+				}
+		}
+		
+	
+	
+
+var ColonialHouse = typeofHouse('colonial');
+var OtherHouse = typeofHouse('the white house');
+OtherHouse('Donald Trump');
+ColonialHouse('Tom');
+
+
+*/
+
+
+
+
+/// IIFE
+
+
+/*
+(function() {
+	var score = Math.random() * 10;
+	console.log(score >=5);
+})();
+
+*/
+
+/*
+(function(goodLuck) {
+	var score = Math.random() * 10;
+	console.log(score >=5 - goodLuck);
+})(9);
+
+
+
+
+
+
+function retirement(retirementAge) {
+	var a = ' years left until retirement.';
+	return function(yearOfBirth) {
+			var age = 2019 - yearOfBirth;
+			console.log((retirementAge - age) + a);
+	}
+}
+	
+	var retirementUS = retirement(66);
+retirementUS(1998);
+var retirementGermany = retirement(65);
+retirementGermany(1991); 
+
+	
+	*/
+/*
+function interviewQuestion(job) {
+	 if (job === 'designer') {
+			 return function(name) {
+					console.log(name + ', can you please explain UX design is?')
+				}
+				} else if (job === 'teacher') {
+				return function(name) {
+					console.log('What subject do you teach, ' + name + '?');
+				}
+				} else {
+					return function(name) { 
+						console.log('hello ' + name + ', what do you do?')
+						
+					}
+				}
+		}
+		
+	function interviewQuestion(job) {
+				return function(name) {
+							if (job === 'designer') {
+									console.log(name + ', can you please explain UX design is?')
+							} else if (job === 'teacher') 
+								{
+									console.log('What subject do you teach, ' + name + '?');
+								} else {
+									console.log('hello ' + name + ', what do you do?')
+								}
+				}
+	}
+	
+	var teacherQuestion = interviewQuestion('teacher');
+teacherQuestion('john');
+
+var designerQuestion = interviewQuestion('designer');
+designerQuestion('Bob');
+	
+	
+	
+	
+	*/ // bind, call, apply
+
+/*
+
+var john = {
+	name: 'John',
+	age: 26,
+	job: 'teacher',
+	presentation: function(style, timeOfDay) {
+		if (style === 'formal') {
+			console.log('Good ' + timeOfDay + ', Ladies and gentleman! I\'m ' + this.name + ', I\'m a ' + this. job + ' and I\'m ' + this.age + ' years old.');
+} else if (style === 'friendly') {
+	console.log('Hey! Whats\'s up?  I\'m a ' + this. job + ' and I\'m ' +
+ this.age + ' years old. Have a nice ' + timeOfDay + '.');
+}
+		
+	}
+
+}
+
+var emily = {
+ name: 'Emily',
+	age:35,
+	job: 'designer'
+};
+	
+	john.presentation('friendly', 'morning');
+
+john.presentation.call(emily, 'friendly', 'afternoon');
+	
+
+var johnFriendly = john.presentation.bind(john, 'formal');
+
+johnFriendly('afternoon');
+	
+
+var emilyFormal = john.presentation.bind(emily, 'formal');
+emilyFormal('morning');
+	
+	
+	
+	
+	*/
+	
+	
+	
+	
+var years = [1988, 1965, 1937, 2005, 1998];
+
+function arrayCalc(arr, fn) {
+	  var arrRes = [];
+	  for (var i = 0; i <arr.length; i++) {
+				arrRes.push(fn(arr[i]));
+			}
+	return arrRes;
+}
+
+function calculateAge(el) {
+	 return 2019 - el;
+}
+
+function isFullAge(limit, el) {
+		return el >= limit;
+}
+
+	var ages = arrayCalc(years, calculateAge);
+var fullJapan = arrayCalc(ages, isFullAge.bind(this, 20));
+console.log(ages);
+console.log(fullJapan);
+	
+	
+
+
+
+
+/*
+
+var Question = function(whatQues, answer1, answer2, answer3, correct) {
+			
+	this.whatQues = whatQues;
+	this.answer1 = answer1;
+	this.answer2 = answer2;
+	this.answer3 = answer3;
+	this.correct = correct;
+	
+	
+}
+
+
+
+var American = new Question('How many stars are there in the American flag?', 50, 25, 32, 50)
+var Hockey = new Question('How many goals are in a hat trick?', 3, 2, 1, 3)
+var Football = new Question('How many points is a touchdown?', 7, 4, 6, 6)
+
+var quesArray = [American, Hockey, Football];
+
+
+
+	var score = Math.floor(Math.random * quesArray.length);
+
+
+function randGen() {
+	if (score === 0) {
+		
+		console.log(quesArray[0]);
+		var ranQues = prompt('How many stars are there in the American flag? 50, 25, 32');
+		switch(ranQues) {
+			case "50":
+				console.log('that is the correct answer!');
+				break;
+				case "25":
+				console.log('Hmm, did you go to class?');
+				break;
+				case "32":
+				console.log('oh sorry that is incorrect but you are close');
+				break;
+				default:
+				console.log('please enter a number');
+				break;
+		}
+	} else if (score === 1) {
+		
+		console.log(quesArray[1]);
+	var ranQues1 = prompt('How many goals are there in a hat trick? 3, 2, 1');
+				switch(ranQues1) {
+			case "3":
+				console.log('that is the correct answer!');
+				break;
+					case "2":
+				console.log('I guess you did not play much hockey, eh?');
+				break;
+				case "1":
+				console.log('Not even close');
+				break;
+				default:
+				console.log('please enter a number');
+				break;
+		}
+		
+		
+	} else {
+		console.log(quesArray[2]);
+	 var ranQues2 = prompt('How many points is a touchdown? 7, 4, 6');
+				switch(ranQues2) {
+			case "7":
+				console.log('Tricked ya!');
+				break;
+				case "4":
+				console.log('You should stick to whatever sport you play');
+				break;
+				case "6":
+				console.log('Correct!');
+				break;
+				default:
+				console.log('please enter a number');
+				break;
+		}
+	}
+}
+
+randGen();
+
+
+*/
+
+/*
+
+(function() {
+	
+	
+	function Question(question, answers, correct) {
+	this.question = question;
+	this.answers = answers;
+	this.correct = correct;
+	
+}
+
+Question.prototype.displayQuestion = function() {
+	console.log(this.question);
+	
+	for (var i = 0; i < this.answers.length; i++) {
+		
+		console.log(i + ': ' + this.answers[i]);
+	}
+	
+}
+
+Question.prototype.checkAnswer = function(ans) {
+	 if (ans === this.correct) {
+			console.log('correct answer!');
+		} else {
+			console.log('wrong answer.');
+		}
+}
+var q1 = new Question('Is javascript the coolest programming lamguage in the world?', 
+['yes', 'no'], 0);
+
+
+var q2 = new Question('What is the name of this courses teacher?'
+['John', 'Michael', 'Jonas'], 2);
+
+
+var q3 = new Question('Which best describes coding?',
+['boring', 'hard', 'fun', 'tedious'], 2);
+
+
+var questions = [q1, q2, q3];
+
+var n = Math.floor(Math.random() * questions.length);
+
+questions[n].displayQuestion();
+
+
+var answer = parseInt(prompt('please select the correct answer.'));
+
+questions[n].checkAnswer(answer);
+
+	
+	
+})();
+
+
+*/
+
+
+
+(function() {
+	
+	
+	function Question(question, answers, correct) {
+	this.question = question;
+	this.answers = answers;
+	this.correct = correct;
+	
+}
+
+Question.prototype.displayQuestion = function() {
+	console.log(this.question);
+	
+	for (var i = 0; i < this.answers.length; i++) {
+		
+		console.log(i + ': ' + this.answers[i]);
+	}
+	
+}
+
+Question.prototype.checkAnswer = function(ans, callback) {
+	 if (ans === this.correct) {
+			var sc;
+			console.log('correct answer!');
+			sc = callback(true);
+		} else {
+			console.log('wrong answer.');
+			
+			sc = callback(false);
+		}
+	
+	this.displayScore(sc);
+}
+
+Question.prototype.displayScore = function(score) {
+	
+	console.log('Your current score is: ' + score);
+	console.log('-------------');
+}
+
+
+
+var q1 = new Question('Is javascript the coolest programming lamguage in the world?', 
+['yes', 'no'], 0);
+
+
+var q2 = new Question('What is the name of this courses teacher?'
+['John', 'Michael', 'Jonas'], 2);
+
+
+var q3 = new Question('Which best describes coding?',
+['boring', 'hard', 'fun', 'tedious'], 2);
+
+
+	var questions = [q1, q2, q3];
+	
+	function score() {
+		
+		var sc = 0;
+		return function(correct) {
+			
+			if (correct) {
+				sc++;
+			}
+			return sc;
+		}
+		
+	}
+	
+	var keepScore = score();
+
+	function nextQuestion() {
+	
+
+
+var n = Math.floor(Math.random() * questions.length);
+
+questions[n].displayQuestion();
+
+
+var answer = prompt('please select the correct answer.');
+
+
+	
+		
+		if(answer !== 'exit') {
+			
+			questions[n].checkAnswer(parseInt(answer), keepScore);
+			
+			nextQuestion();
+		}
+	
+	}
+	
+	
+	
+	nextQuestion();
+	
+	
+})();
+
+
